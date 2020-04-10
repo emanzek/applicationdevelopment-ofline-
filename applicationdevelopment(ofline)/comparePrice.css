@@ -1,0 +1,109 @@
+body {
+    background: linear-gradient(147deg, #97cadb, #018abe);
+    height: 115vh;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 90px;
+
+}
+
+
+.sub-container {
+    background: hsl(0, 0%, 100%);
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 6px 6px 6px -6px black;
+   
+}
+
+.sub-container .hero
+{
+    padding: 10px;
+}
+
+h1 {
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top:20px; 
+}
+
+.compare-price div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-item img {
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.compare-price p {
+    font-size: 30px;
+    color: #0060ca;
+
+}
+
+.compare-price img {
+    width: 100px;
+}
+
+.compare-container {
+    width: 450px;
+    height: 80px;
+    background: #deecff;
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.compare-container a
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compare-container:last-child
+{
+    border:none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: -10px;;
+}
+
+.compare-container:hover {
+    background: linear-gradient(to right,#009f9d,#cbf1f5) ;
+}
+
+.compare-container:hover div p
+{
+    color: white;
+}
+
+.compare-container div {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

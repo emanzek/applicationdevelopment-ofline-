@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="product.css">
+    <style>
+        body
+        {
+            height:100vh;
+        }
+        .item-container
+        {
+            width: 700px;
+            height: 150px;
+            background: white;
+            border-radius: 3px;
+            box-shadow: 0 8px 8px -8px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform:translate(-50%);
+            margin-top: 40px;
+        }
+        .item-container img
+        {
+            width:200px;
+            height: 140px;
+        }
+
+        form
+        {
+            display: flex;
+            align-items: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="test.php" method=POST>
+            <input type="text" name="valueToSearch" placeholder="Search anything here...">
+            <button name="search">Search</button>
+        </form>
+
+        <div class="item-container">
+            <img src="pictures/Food(Ready To Eat)/Biscuits/v1.jpeg" alt="">
+            <p><?php echo ?>></p>
+            <a href="">Buy Now</a>
+        </div>
+    </div>
+</body>
+</html>

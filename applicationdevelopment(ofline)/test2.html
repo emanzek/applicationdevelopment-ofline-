@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap');
+
+        .item-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        p,
+        a {
+            font-family: 'Quattrocento Sans', sans-serif;
+
+        }
+
+        .item-image {
+            width: 200px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-image img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .item-name {
+            font-size: 20px;
+            width: 270px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 0px;
+        }
+
+        .item-name img {
+            width: 50px;
+            height: 20px;
+        }
+
+        .price,
+        .total-container {
+            height: 100px;
+            width: 180px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 2px solid lightgrey;
+            border-right: 2px solid lightgrey;
+        }
+
+        .total-container {
+            border-left: 2px solid lightgrey;
+        }
+
+        .price p,
+        .total-container p {
+            font-size: 30px;
+            color: #018abe;
+        }
+
+        .quantity-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+        }
+
+        .quantity-container .minus,
+        .plus {
+            background: #cf455c;
+            width: 40px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            box-shadow: 6px 6px 6px -6px black;
+            color: white;
+            transition: 300ms;
+            font-size: 25px;
+        }
+
+        .minus:hover {
+            transform: scale(1.10);
+        }
+
+        .plus:hover {
+            transform: scale(1.10);
+        }
+
+
+        input {
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            outline: none;
+            box-shadow: 6px 6px 6px -6px black;
+            background: #ffdd67;
+            color: white;
+            font-size: 16px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cf455c;
+        }
+
+        .delete-container {
+            width: 150px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-image::after {
+            content: "";
+            background: lightgrey;
+            position: relative;
+            height: 100px;
+            width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item-container row">
+
+        <div class="item-image">
+            <img src="pictures/Food(Ready To Eat)/Biscuits/chipsmore.jpeg" alt="">
+        </div>
+        <div class="item-name">
+            <div>
+                <p>Super NutreMill 3in1 Cereal Mix 15-18x30g Assort</p>
+            </div>
+            <div><img src="pictures/retailerImage/aeon.png" alt=""></div>
+        </div>
+        <div class="price col">
+            <p>RM <span>5.40</span></p>
+        </div>
+        <div class="quantity-container row">
+            <div class="minus" >
+                <p>-</p>
+            </div>
+            <div><input type="text" value="1" id="qty"></div>
+            <div class="plus">
+                <p>+</p>
+            </div>
+        </div>
+        <div class="total-container col">
+            <div>
+                <p>RM <span id="total-price-item">12.00</span></p>
+            </div>
+        </div>
+
+        <div class="delete-container">
+            <a href="delete.php">Delete</a>
+        </div>
+    </div>
+
+
+
+    <script>
+        function getTotal() {
+            var total = 0;
+            $('.sum').each(function () {
+                total += parseFloat(this.innerHTML);
+            });
+            $('#total').text(total);
+        }
+        getTotal();
+
+        $(".qty").each(function () {
+            var parent = $(this).parents('.row'),
+                price = $('.price', parent),
+                sum = $('.sum', parent),
+                value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+            sum.text(value);
+            getTotal();
+        });
+
+        $(".minus").on("click", function () {
+            var $qty = $(this).closest('.col').find('.qty'),
+                currentVal = parseInt($qty.val());
+            if (!isNaN(currentVal) && currentVal > 1) {
+                $qty.val(currentVal - 1);
+            }
+            $('.col .qty').is(function () {
+                var parent = $(this).parents('.row'),
+                    price = $('.price', parent),
+                    sum = $('.sum', parent),
+                    value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+                sum.text(value);
+                getTotal();
+            });
+        });
+
+        $(".plus").on("click", function () {
+            var $qty = $(this).closest('.col').find('.qty'),
+                currentVal = parseInt($qty.val());
+            if (!isNaN(currentVal)) {
+                $qty.val(currentVal + 1);
+            }
+            $('.col .qty').is(function () {
+                var parent = $(this).parents('.row'),
+                    price = $('.price', parent),
+                    sum = $('.sum', parent),
+                    value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+                sum.text(value);
+                getTotal();
+            });
+        });
+    </script>
+</body>
+
+</html>

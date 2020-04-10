@@ -1,0 +1,148 @@
+body{
+    background: #0060ca;
+}
+
+p {
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+}
+
+.button div button {
+    width: 20vh;
+}
+
+ul {
+    font-family: 'Hind Vadodara', sans-serif;
+    list-style: none;
+    text-align: center;
+    width: 120px;
+    opacity: 1;
+    z-index: 999;
+    position: relative;
+    padding: 0;
+}
+
+ul li {
+    cursor: pointer;
+    transition: 300ms;
+
+}
+
+ul li ul li {
+    height: 50px;
+    line-height: 50px;
+    background: #0060ca;
+}
+
+ul li ul li {
+    animation: swing-in-left-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    display: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+@keyframes swing-in-left-fwd {
+    0% {
+        -webkit-transform: rotateY(100deg);
+        transform: rotateY(100deg);
+        -webkit-transform-origin: left;
+        transform-origin: left;
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+        -webkit-transform-origin: left;
+        transform-origin: left;
+        opacity: 1;
+    }
+}
+
+ul li:hover ul li {
+    display: block;
+    background: rgb(0, 96, 202, 0.8);
+}
+
+ul li ul li:hover {
+    background: none;
+}
+
+ul li ul li a {
+    color: white;
+}
+
+ul li ul li:hover a {
+    color: #0060ca;
+}
+
+ul li ul li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fffdfb;
+    width: 0%;
+    height: 100%;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+ul li ul li:hover::before {
+    width: 100%;
+}
+
+textarea
+{
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom:3px;
+    border: 1px solid grey;
+    box-shadow: 0 5px 6px -6px black;
+    font-family: 'Quattrocento Sans', sans-serif;
+    outline-color:#0060ca;
+    width: 400px;
+    height: 60px;
+    margin-top: 10px;
+}
+
+#signup-con
+{
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+}
+
+
+
+.payment-method
+{
+    margin-left: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-top:10px;
+}
+
+.payment-method p
+{
+    margin-left: -8px;
+    margin-top: 0;
+}
+
+input[type=radio]
+{
+    width: 20px;
+    box-shadow: none;
+}
+
